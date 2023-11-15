@@ -10,6 +10,11 @@ namespace WebApiEfCore
         }
 
         public DbSet<User> Users { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+        }
     }
 
 
@@ -28,6 +33,5 @@ namespace WebApiEfCore
         public required string Phone { get; set; }
         public required string PhoneNumber { get; set; }
         public required string PhoneNumberConfirmed { get; set; }
-
     }
 }
