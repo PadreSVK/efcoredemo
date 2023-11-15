@@ -19,6 +19,8 @@ builder.Services.AddHostedService<BetterWorker>();
 // user secrets
 //cmd args
 
+builder.Services.Configure<MyAwesomeConfig>(builder.Configuration.GetSection("mysection"));
+
 
 var aconfig = builder.Configuration.GetDebugView();
 

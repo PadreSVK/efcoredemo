@@ -1,13 +1,17 @@
-﻿namespace WebApi
+﻿using Microsoft.Extensions.Options;
+
+namespace WebApi
 {
     public class Worker : BackgroundService
     {
         private readonly ILogService myservice;
+        private readonly MyAwesomeConfig options;
 
-        public Worker(ILogService myService, IConfiguration configuration)
+        public Worker(ILogService myService, IOptions<MyAwesomeConfig> options)
         //public Worker(IServiceProvider serviceProvider)
         {
             myservice = myService;
+            this.options = options.Value;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
